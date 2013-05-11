@@ -27,11 +27,11 @@ class Bing
 		 
 		user = ''
 		web_search_url = "https://api.datamarket.azure.com/Bing/Search/#{type}?$format=json&Query="
-		deuxieme = URI.encode_www_form_component('\'' + search_term + '\'')
-		specs = "&$top=#{@num_results}"
-		youknow = web_search_url + deuxieme + specs
+		query_portion = URI.encode_www_form_component('\'' + search_term + '\'')
+		params = "&$top=#{@num_results}"
+		full_address = web_search_url + query_portion + params
 
-		uri = URI(youknow)
+		uri = URI(full_address)
 		req = Net::HTTP::Get.new(uri.request_uri)
 		req.basic_auth user, accountKey
 
