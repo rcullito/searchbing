@@ -9,5 +9,6 @@ Usage
 
 Example 
 ===============
-animals = Bing.new('DRkn4XEBn0A/cEQFHD4TYolM6WD0qjozdOeWvqpc9j4', 10, 'Image')
-animals.search("lion")
+1. animals = Bing.new('account_key', 10, 'Image')   
+
+2. animals.search("lion")   
