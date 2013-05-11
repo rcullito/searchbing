@@ -21,7 +21,7 @@ class Bing
 	#   => #<Bing:0x9d9b9f4 @accountKey="your_account_key", @num_results=10, @type="Image">
 	# Arguments:
 	#   search_term: (String)
-	#    => "{\"d\":{\"results\":[{\"__metadata\":{\"uri\":\"https://api.datamarket.
+	#    => "{\"d\":{\"results\":[{\"__metadata\":{\"uri\":\"https://api.datamarket....
 
 	def search(search_term)
 		 
