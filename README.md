@@ -9,6 +9,6 @@ Usage
 
 Example 
 ===============
-1. animals = Bing.new('account_key', 10, 'Image')   
+1. animals = Bing.new('your_account_key_goes_here', 10, 'Image')   
 
 2. animals.search("lion")   
