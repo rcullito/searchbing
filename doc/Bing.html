@@ -99,6 +99,12 @@
 
   <div id="description" class="description">
     
+<p>The <a href="Bing.html">Bing</a> Class provides the ability to connect to
+the bing search api hosted on the windows azure marketplace. Before
+proceeding you will need an account key, which can be obtained by
+registering an accout at <a
+href="http://windows.microsoft.com/en-US/windows-live/sign-in-what-is-microsoft-account">windows.microsoft.com/en-US/windows-live/sign-in-what-is-microsoft-account</a></p>
+
   </div><!-- description -->
 
   
@@ -117,9 +123,9 @@
       <h3 class="section-header">Attributes</h3>
 
       
-      <div id="attribute-i-accountKey" class="method-detail">
+      <div id="attribute-i-account_key" class="method-detail">
         <div class="method-heading attribute-method-heading">
-          <span class="method-name">accountKey</span><span
+          <span class="method-name">account_key</span><span
             class="attribute-access-type">[RW]</span>
         </div>
 
@@ -169,7 +175,7 @@
         
         <div class="method-heading">
           <span class="method-name">new</span><span
-            class="method-args">(accountKey, num_results, type)</span>
+            class="method-args">(account_key, num_results, type)</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
         
@@ -179,7 +185,7 @@
           <p>Create a new object of the bing class</p>
 
 <pre class="ruby"><span class="ruby-operator">&gt;&gt;</span> <span class="ruby-identifier">animals</span> = <span class="ruby-constant">Bing</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">'your_account_key_goes_here'</span>, <span class="ruby-value">10</span>, <span class="ruby-string">'Image'</span>) 
-=<span class="ruby-operator">&gt;</span> <span class="ruby-comment">#&lt;Bing:0x9d9b9f4 @accountKey=&quot;your_account_key&quot;, @num_results=10, @type=&quot;Image&quot;&gt;</span>
+=<span class="ruby-operator">&gt;</span> <span class="ruby-comment">#&lt;Bing:0x9d9b9f4 @account_key=&quot;your_account_key&quot;, @num_results=10, @type=&quot;Image&quot;&gt;</span>
 </pre>
 
 <p>Arguments:</p>
@@ -191,10 +197,10 @@ type:         (String)</pre>
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/searchbing.rb, line 10</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">accountKey</span>, <span class="ruby-identifier">num_results</span>, <span class="ruby-identifier">type</span>)
+            <pre><span class="ruby-comment"># File lib/searchbing.rb, line 12</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">account_key</span>, <span class="ruby-identifier">num_results</span>, <span class="ruby-identifier">type</span>)
 
-        <span class="ruby-ivar">@accountKey</span> = <span class="ruby-identifier">accountKey</span>
+        <span class="ruby-ivar">@account_key</span> = <span class="ruby-identifier">account_key</span>
         <span class="ruby-ivar">@num_results</span> = <span class="ruby-identifier">num_results</span>
         <span class="ruby-ivar">@type</span> = <span class="ruby-identifier">type</span>
 <span class="ruby-keyword">end</span></pre>
@@ -228,36 +234,35 @@ type:         (String)</pre>
           <p>Search for a term</p>
 
 <pre class="ruby"><span class="ruby-operator">&gt;&gt;</span> <span class="ruby-identifier">animals</span>.<span class="ruby-identifier">search</span>(<span class="ruby-string">&quot;lion&quot;</span>) 
-=<span class="ruby-operator">&gt;</span> <span class="ruby-comment">#&lt;Bing:0x9d9b9f4 @accountKey=&quot;your_account_key&quot;, @num_results=10, @type=&quot;Image&quot;&gt;</span>
-</pre>
+=<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;{\&quot;d\&quot;:{\&quot;results\&quot;:[{\&quot;__metadata\&quot;:{\&quot;uri\&quot;:\&quot;https://api.datamarket....
+</span></pre>
 
 <p>Arguments:</p>
 
-<pre class="ruby"><span class="ruby-identifier">search_term</span><span class="ruby-operator">:</span> (<span class="ruby-constant">String</span>)
- =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;{\&quot;d\&quot;:{\&quot;results\&quot;:[{\&quot;__metadata\&quot;:{\&quot;uri\&quot;:\&quot;https://api.datamarket....
-</span></pre>
+<pre>search_term: (String)</pre>
           
 
           
           <div class="method-source-code" id="search-source">
-            <pre><span class="ruby-comment"># File lib/searchbing.rb, line 26</span>
+            <pre><span class="ruby-comment"># File lib/searchbing.rb, line 27</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">search</span>(<span class="ruby-identifier">search_term</span>)
          
         <span class="ruby-identifier">user</span> = <span class="ruby-string">''</span>
         <span class="ruby-identifier">web_search_url</span> = <span class="ruby-node">&quot;https://api.datamarket.azure.com/Bing/Search/#{type}?$format=json&amp;Query=&quot;</span>
-        <span class="ruby-identifier">deuxieme</span> = <span class="ruby-constant">URI</span>.<span class="ruby-identifier">encode_www_form_component</span>(<span class="ruby-string">'\'</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">search_term</span> <span class="ruby-operator">+</span> <span class="ruby-string">'\'</span>)
-        <span class="ruby-identifier">specs</span> = <span class="ruby-node">&quot;&amp;$top=#{@num_results}&quot;</span>
-        <span class="ruby-identifier">youknow</span> = <span class="ruby-identifier">web_search_url</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">deuxieme</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">specs</span>
+        <span class="ruby-identifier">query_portion</span> = <span class="ruby-constant">URI</span>.<span class="ruby-identifier">encode_www_form_component</span>(<span class="ruby-string">'\'</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">search_term</span> <span class="ruby-operator">+</span> <span class="ruby-string">'\'</span>)
+        <span class="ruby-identifier">params</span> = <span class="ruby-node">&quot;&amp;$top=#{@num_results}&quot;</span>
+        <span class="ruby-identifier">full_address</span> = <span class="ruby-identifier">web_search_url</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">query_portion</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">params</span>
 
-        <span class="ruby-identifier">uri</span> = <span class="ruby-constant">URI</span>(<span class="ruby-identifier">youknow</span>)
+        <span class="ruby-identifier">uri</span> = <span class="ruby-constant">URI</span>(<span class="ruby-identifier">full_address</span>)
         <span class="ruby-identifier">req</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span><span class="ruby-operator">::</span><span class="ruby-constant">Get</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">uri</span>.<span class="ruby-identifier">request_uri</span>)
-        <span class="ruby-identifier">req</span>.<span class="ruby-identifier">basic_auth</span> <span class="ruby-identifier">user</span>, <span class="ruby-identifier">accountKey</span>
+        <span class="ruby-identifier">req</span>.<span class="ruby-identifier">basic_auth</span> <span class="ruby-identifier">user</span>, <span class="ruby-identifier">account_key</span>
 
         <span class="ruby-identifier">res</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span>.<span class="ruby-identifier">start</span>(<span class="ruby-identifier">uri</span>.<span class="ruby-identifier">hostname</span>, <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">port</span>, <span class="ruby-value">:use_ssl</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">scheme</span> <span class="ruby-operator">==</span> <span class="ruby-string">'https'</span>){<span class="ruby-operator">|</span><span class="ruby-identifier">http</span><span class="ruby-operator">|</span>
                 <span class="ruby-identifier">http</span>.<span class="ruby-identifier">request</span>(<span class="ruby-identifier">req</span>)
         }
 
         <span class="ruby-identifier">res</span>.<span class="ruby-identifier">body</span>
+
 <span class="ruby-keyword">end</span></pre>
           </div><!-- search-source -->
           
