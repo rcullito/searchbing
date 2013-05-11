@@ -1,0 +1,1 @@
+var search_data = {"index":{"searchIndex":["bing","new()","search()"],"longSearchIndex":["bing","bing::new()","bing#search()"],"info":[["Bing","","Bing.html","",""],["new","Bing","Bing.html#method-c-new","(accountKey, num_results, type)",""],["search","Bing","Bing.html#method-i-search","(search_term)",""]]}}

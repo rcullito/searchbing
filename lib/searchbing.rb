@@ -1,5 +1,14 @@
 class Bing
+	# Create a new object of the bing class
+	#   >> animals = Bing.new('your_account_key_goes_here', 10, 'Image') 
+	#   => #<Bing:0x9d9b9f4 @accountKey="your_account_key", @num_results=10, @type="Image">
+	# Arguments:
+	#   account_key: (String)
+	#   num_results: (Integer)
+	#   type: 	   (String)
+
 	def initialize(accountKey, num_results, type)
+
 		@accountKey = accountKey
 		@num_results = num_results
 		@type = type
@@ -7,7 +16,15 @@ class Bing
 
 	attr_accessor :accountKey, :num_results, :type
 
+	# Search for a term
+	#   >> animals.search("lion") 
+	#   => #<Bing:0x9d9b9f4 @accountKey="your_account_key", @num_results=10, @type="Image">
+	# Arguments:
+	#   search_term: (String)
+	#    => "{\"d\":{\"results\":[{\"__metadata\":{\"uri\":\"https://api.datamarket.
+
 	def search(search_term)
+		 
 		user = ''
 		web_search_url = "https://api.datamarket.azure.com/Bing/Search/#{type}?$format=json&Query="
 		deuxieme = URI.encode_www_form_component('\'' + search_term + '\'')
