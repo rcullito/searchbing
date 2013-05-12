@@ -1,3 +1,8 @@
+require 'json'
+require 'open-uri'
+require 'net/http'
+
+
 # The Bing Class provides the ability to connect to the bing search api hosted on the windows azure marketplace.
 # Before proceeding you will need an account key, which can be obtained by registering an accout at http://windows.microsoft.com/en-US/windows-live/sign-in-what-is-microsoft-account
 class Bing
@@ -40,7 +45,19 @@ class Bing
   			http.request(req)
 		}
 
-		res.body
+		# general parsing structure
+		# $jsonobj->d->results as $value
+		# link $value->MediaURL
+		# image $value->Thumbnail->MediaUrl
 
+		body = JSON.parse(res.body)
+		result_set = body["d"]["results"]
+		# p result_set
+		p result_set[0]["Title"]
+
+		
 	end	
 end
+
+animals = Bing.new('MM6OD0qjozdOWWvspc0j4DRkn4JEBM0A/cEQFHDKTYo', 2, 'Image')
+animals.search("lion")
