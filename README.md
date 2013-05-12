@@ -6,6 +6,7 @@ Usage
 ============
 1. create a new search object from the Bing class. Enter your recently obtained account key, the number of results you would like, and the search type.
 2. valid search types include: Image, Web, or Video. The first letter must be capitalized
+3. the searchbing gem relies on the open-uri, net/http, and json gems.
 
 Example 
 ===============
