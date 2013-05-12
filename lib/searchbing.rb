@@ -19,9 +19,11 @@ class Bing
 		@account_key = account_key
 		@num_results = num_results
 		@type = type
+
+
 	end
 
-	attr_accessor :account_key, :num_results, :type
+	attr_accessor :account_key, :num_results, :type, :thumbnail
 
 	# Search for a term
 	#   >> animals.search("lion") 
@@ -51,19 +53,29 @@ class Bing
 		# image $value->Thumbnail->MediaUrl
 
 		body = JSON.parse(res.body)
-		result_set = body["d"]["results"]
-		# p result_set
+		result_set = body["d"]["results"]	
+	end	
+end
+
+animals = Bing.new('MM6OD0qjozdOWWvspc0j4DRkn4JEBM0A/cEQFHDKTYo', 2, 'Image')
+p bing_results = animals.search("lion")
+# returns an array of hashes with the results
+
+
+
+=begin
+
+
+# p result_set
 		puts result_set[0]["MediaUrl"] # fullsize
 		p result_set[0]["Thumbnail"]["MediaUrl"] #thumbnail
 		p result_set[0]
 
 		if (@type == "Image")
 			puts "you got yourself an image"
+			@thumbnail = result_set[0]["Thumbnail"]["MediaUrl"]
 		end
+=end
 
-		
-	end	
-end
 
-animals = Bing.new('MM6OD0qjozdOWWvspc0j4DRkn4JEBM0A/cEQFHDKTYo', 2, 'Image')
-animals.search("lion")
+
