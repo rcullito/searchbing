@@ -2,7 +2,6 @@ require 'json'
 require 'open-uri'
 require 'net/http'
 
-
 # The Bing Class provides the ability to connect to the bing search api hosted on the windows azure marketplace.
 # Before proceeding you will need an account key, which can be obtained by registering an accout at http://windows.microsoft.com/en-US/windows-live/sign-in-what-is-microsoft-account
 class Bing
@@ -25,9 +24,9 @@ class Bing
 
 	attr_accessor :account_key, :num_results, :type, :thumbnail
 
-	# Search for a term
+	# Search for a term, the result is an array of hashes with the result data
 	#   >> animals.search("lion") 
-	#   => "{\"d\":{\"results\":[{\"__metadata\":{\"uri\":\"https://api.datamarket....
+	#   => [{"__metadata"=>{"uri"=>"https://api.datamarket.azure.com/Data.ashx/Bing/Search/Image?Query='lion'&$skip=0&$top=1", "type"=>"Image
 	# Arguments:
 	#   search_term: (String)
 
@@ -47,35 +46,7 @@ class Bing
   			http.request(req)
 		}
 
-		# general parsing structure
-		# $jsonobj->d->results as $value
-		# link $value->MediaURL
-		# image $value->Thumbnail->MediaUrl
-
 		body = JSON.parse(res.body)
 		result_set = body["d"]["results"]	
 	end	
 end
-
-animals = Bing.new('MM6OD0qjozdOWWvspc0j4DRkn4JEBM0A/cEQFHDKTYo', 2, 'Image')
-p bing_results = animals.search("lion")
-# returns an array of hashes with the results
-
-
-
-=begin
-
-
-# p result_set
-		puts result_set[0]["MediaUrl"] # fullsize
-		p result_set[0]["Thumbnail"]["MediaUrl"] #thumbnail
-		p result_set[0]
-
-		if (@type == "Image")
-			puts "you got yourself an image"
-			@thumbnail = result_set[0]["Thumbnail"]["MediaUrl"]
-		end
-=end
-
-
-

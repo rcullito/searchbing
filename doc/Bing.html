@@ -149,6 +149,19 @@ href="http://windows.microsoft.com/en-US/windows-live/sign-in-what-is-microsoft-
         </div>
       </div>
       
+      <div id="attribute-i-thumbnail" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">thumbnail</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
       <div id="attribute-i-type" class="method-detail">
         <div class="method-heading attribute-method-heading">
           <span class="method-name">type</span><span
@@ -197,12 +210,14 @@ type:         (String)</pre>
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/searchbing.rb, line 12</span>
+            <pre><span class="ruby-comment"># File lib/searchbing.rb, line 16</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">account_key</span>, <span class="ruby-identifier">num_results</span>, <span class="ruby-identifier">type</span>)
 
         <span class="ruby-ivar">@account_key</span> = <span class="ruby-identifier">account_key</span>
         <span class="ruby-ivar">@num_results</span> = <span class="ruby-identifier">num_results</span>
         <span class="ruby-ivar">@type</span> = <span class="ruby-identifier">type</span>
+
+
 <span class="ruby-keyword">end</span></pre>
           </div><!-- new-source -->
           
@@ -231,10 +246,10 @@ type:         (String)</pre>
 
         <div class="method-description">
           
-          <p>Search for a term</p>
+          <p>Search for a term, the result is an array of hashes with the result data</p>
 
 <pre class="ruby"><span class="ruby-operator">&gt;&gt;</span> <span class="ruby-identifier">animals</span>.<span class="ruby-identifier">search</span>(<span class="ruby-string">&quot;lion&quot;</span>) 
-=<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;{\&quot;d\&quot;:{\&quot;results\&quot;:[{\&quot;__metadata\&quot;:{\&quot;uri\&quot;:\&quot;https://api.datamarket....
+=<span class="ruby-operator">&gt;</span> [{<span class="ruby-string">&quot;__metadata&quot;</span>=<span class="ruby-operator">&gt;</span>{<span class="ruby-string">&quot;uri&quot;</span>=<span class="ruby-operator">&gt;</span><span class="ruby-string">&quot;https://api.datamarket.azure.com/Data.ashx/Bing/Search/Image?Query='lion'&amp;$skip=0&amp;$top=1&quot;</span>, <span class="ruby-string">&quot;type&quot;</span>=<span class="ruby-operator">&gt;</span><span class="ruby-string">&quot;Image
 </span></pre>
 
 <p>Arguments:</p>
@@ -244,7 +259,7 @@ type:         (String)</pre>
 
           
           <div class="method-source-code" id="search-source">
-            <pre><span class="ruby-comment"># File lib/searchbing.rb, line 27</span>
+            <pre><span class="ruby-comment"># File lib/searchbing.rb, line 33</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">search</span>(<span class="ruby-identifier">search_term</span>)
          
         <span class="ruby-identifier">user</span> = <span class="ruby-string">''</span>
@@ -261,8 +276,8 @@ type:         (String)</pre>
                 <span class="ruby-identifier">http</span>.<span class="ruby-identifier">request</span>(<span class="ruby-identifier">req</span>)
         }
 
-        <span class="ruby-identifier">res</span>.<span class="ruby-identifier">body</span>
-
+        <span class="ruby-identifier">body</span> = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">res</span>.<span class="ruby-identifier">body</span>)
+        <span class="ruby-identifier">result_set</span> = <span class="ruby-identifier">body</span>[<span class="ruby-string">&quot;d&quot;</span>][<span class="ruby-string">&quot;results&quot;</span>]     
 <span class="ruby-keyword">end</span></pre>
           </div><!-- search-source -->
           
