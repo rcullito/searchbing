@@ -9,16 +9,18 @@ Usage
 
 Example 
 ===============
-1. Create a new search object 
+1. Create a new search object  
 
 animals = Bing.new('your_account_key_goes_here', 10, 'Image')   
 
-2. Retrieve the results for a given term
+2. Retrieve the results for a given term  
 
-bing_results = animals.search("lion") 
+bing_results = animals.search("lion")  
 
-3. parse the result set depending on what you would like to retrive
+3. parse the result set depending on what you would like to retrive  
 
-puts result_set[0]["MediaUrl"] # puts url of fullsize image
-puts result_set[0]["Thumbnail"]["MediaUrl"] # puts url of thumbnail
+puts result_set[0]["MediaUrl"] # puts url of fullsize image  
+
+puts result_set[0]["Thumbnail"]["MediaUrl"] # puts url of thumbnail  
+
 
