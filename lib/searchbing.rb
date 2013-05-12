@@ -22,7 +22,7 @@ class Bing
 
 	end
 
-	attr_accessor :account_key, :num_results, :type, :thumbnail
+	attr_accessor :account_key, :num_results, :type
 
 	# Search for a term, the result is an array of hashes with the result data
 	#   >> animals.search("lion") 
