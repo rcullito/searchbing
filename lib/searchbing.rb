@@ -53,7 +53,13 @@ class Bing
 		body = JSON.parse(res.body)
 		result_set = body["d"]["results"]
 		# p result_set
-		p result_set[0]["Title"]
+		puts result_set[0]["MediaUrl"] # fullsize
+		p result_set[0]["Thumbnail"]["MediaUrl"] #thumbnail
+		p result_set[0]
+
+		if (@type == "Image")
+			puts "you got yourself an image"
+		end
 
 		
 	end	
