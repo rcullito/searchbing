@@ -1,3 +1,11 @@
+[gem]: https://rubygems.org/gems/searchbing
+
+A Ruby interface to the Bing Search API.
+
+## Installation
+    gem install searchbing
+
+
 Configuration
 =============
 You can create a new account for the Bing Search API and obtain account key can be found at http://www.bing.com/developers/
@@ -10,17 +18,14 @@ Usage
 
 Example 
 ===============
-1. Create a new search object  
+1. Create a new search object.
+2. Retrieve the results for a given term.
+3. parse the result set depending on what you would like to retrive. 
 
-animals = Bing.new('your_account_key_goes_here', 10, 'Image')   
 
-2. Retrieve the results for a given term  
+Bing.new('your_account_key_goes_here', 10, 'Image')  
 
 bing_results = animals.search("lion")  
-
-3. parse the result set depending on what you would like to retrive  
-
-puts bing_results[0]["MediaUrl"] # puts url of fullsize image  
 
 puts bing_results[0]["Thumbnail"]["MediaUrl"] # puts url of thumbnail  
 
