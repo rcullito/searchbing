@@ -19,8 +19,8 @@ bing_results = animals.search("lion")
 
 - parse the result set depending on what you would like to retrive  
 
-puts result_set[0]["MediaUrl"] # puts url of fullsize image  
+puts bing_results[0]["MediaUrl"] # puts url of fullsize image  
 
-puts result_set[0]["Thumbnail"]["MediaUrl"] # puts url of thumbnail  
+puts bing_results[0]["Thumbnail"]["MediaUrl"] # puts url of thumbnail  
 
 
