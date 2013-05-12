@@ -1,6 +1,6 @@
 Configuration
 =============
-You can crate a new account for the Bing Search API and obtain account key can be found at http://www.bing.com/developers/
+You can create a new account for the Bing Search API and obtain account key can be found at http://www.bing.com/developers/
 
 Usage
 ============
@@ -10,15 +10,15 @@ Usage
 
 Example 
 ===============
-- Create a new search object  
+1. Create a new search object  
 
 animals = Bing.new('your_account_key_goes_here', 10, 'Image')   
 
-- Retrieve the results for a given term  
+2. Retrieve the results for a given term  
 
 bing_results = animals.search("lion")  
 
-- parse the result set depending on what you would like to retrive  
+3. parse the result set depending on what you would like to retrive  
 
 puts bing_results[0]["MediaUrl"] # puts url of fullsize image  
 
