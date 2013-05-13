@@ -19,7 +19,7 @@ Usage
 Example 
 ===============
 ## Create a new search object.
-	Bing.new('your_account_key_goes_here', 10, 'Image')
+	animals = Bing.new('your_account_key_goes_here', 10, 'Image')
 ## Retrieve the results for a given term.
 	bing_results = animals.search("lion")
 ## parse the results 
