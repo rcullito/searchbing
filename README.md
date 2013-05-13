@@ -24,7 +24,7 @@ Usage
 Example: Interactive Ruby Shell
 ===============
 ## Require the gem in your shell session
-   require 'searchbing'
+   	require 'searchbing'
 ## Create a new search object.
 	animals = Bing.new('your_account_key_goes_here', 10, 'Image')
 ## Retrieve the results for a given term.
