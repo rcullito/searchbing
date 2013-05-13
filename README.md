@@ -21,8 +21,10 @@ Usage
 2. valid search types include: Image, Web, or Video. The first letter must be capitalized
 3. the searchbing gem relies on the open-uri, net/http, and json gems.
 
-Example 
+Example: Interactive Ruby Shell
 ===============
+## Require the gem in your shell session
+   require 'searchbing'
 ## Create a new search object.
 	animals = Bing.new('your_account_key_goes_here', 10, 'Image')
 ## Retrieve the results for a given term.
