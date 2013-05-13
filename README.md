@@ -1,6 +1,11 @@
-find the [gem](https://rubygems.org/gems/searchbing) on rubygems.org
+![Puffin](http://photos-g.ak.fbcdn.net/hphotos-ak-snc1/hs166.snc1/6216_704615592619_7804626_41719230_39698_n.jpg)
+
 
 A Ruby interface to the Bing Search API.
+
+find the [gem](https://rubygems.org/gems/searchbing) on rubygems.org
+
+
 
 ## Installation
     gem install searchbing
