@@ -50,7 +50,3 @@ class Bing
 		result_set = body["d"]["results"]	
 	end	
 end
-
-animals = Bing.new('MM6OD0qjozdOWWvspc0j4DRkn4JEBM0A/cEQFHDKTYo', 10, 'Image')
-bing_results = animals.search("lion")
-puts bing_results[0]["MediaUrl"]
