@@ -26,9 +26,9 @@ Example: Interactive Ruby Shell
 ## require the gem in your shell session
    	require 'searchbing'
 ## create a new search object
-	animals = Bing.new('your_account_key_goes_here', 10, 'Image')
+	bing_image = Bing.new('your_account_key_goes_here', 10, 'Image')
 ## retrieve the results for a given term
-	bing_results = animals.search("lion")
+	bing_results = bing_image.search("puffin")
 ## parse the results 
 	puts bing_results[0]["Thumbnail"]["MediaUrl"] # puts url of thumbnail  
 

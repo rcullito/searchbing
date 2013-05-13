@@ -184,7 +184,7 @@ href="http://windows.microsoft.com/en-US/windows-live/sign-in-what-is-microsoft-
           
           <p>Create a new object of the bing class</p>
 
-<pre class="ruby"><span class="ruby-operator">&gt;&gt;</span> <span class="ruby-identifier">animals</span> = <span class="ruby-constant">Bing</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">'your_account_key_goes_here'</span>, <span class="ruby-value">10</span>, <span class="ruby-string">'Image'</span>) 
+<pre class="ruby"><span class="ruby-operator">&gt;&gt;</span> <span class="ruby-identifier">bing_image</span> = <span class="ruby-constant">Bing</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">'your_account_key_goes_here'</span>, <span class="ruby-value">10</span>, <span class="ruby-string">'Image'</span>) 
 =<span class="ruby-operator">&gt;</span> <span class="ruby-comment">#&lt;Bing:0x9d9b9f4 @account_key=&quot;your_account_key&quot;, @num_results=10, @type=&quot;Image&quot;&gt;</span>
 </pre>
 
@@ -235,8 +235,8 @@ type:         (String)</pre>
           
           <p>Search for a term, the result is an array of hashes with the result data</p>
 
-<pre class="ruby"><span class="ruby-operator">&gt;&gt;</span> <span class="ruby-identifier">animals</span>.<span class="ruby-identifier">search</span>(<span class="ruby-string">&quot;lion&quot;</span>) 
-=<span class="ruby-operator">&gt;</span> [{<span class="ruby-string">&quot;__metadata&quot;</span>=<span class="ruby-operator">&gt;</span>{<span class="ruby-string">&quot;uri&quot;</span>=<span class="ruby-operator">&gt;</span><span class="ruby-string">&quot;https://api.datamarket.azure.com/Data.ashx/Bing/Search/Image?Query='lion'&amp;$skip=0&amp;$top=1&quot;</span>, <span class="ruby-string">&quot;type&quot;</span>=<span class="ruby-operator">&gt;</span><span class="ruby-string">&quot;Image
+<pre class="ruby"><span class="ruby-operator">&gt;&gt;</span> <span class="ruby-identifier">bing_image</span>.<span class="ruby-identifier">search</span>(<span class="ruby-string">&quot;puffin&quot;</span>) 
+=<span class="ruby-operator">&gt;</span> [{<span class="ruby-string">&quot;__metadata&quot;</span>=<span class="ruby-operator">&gt;</span>{<span class="ruby-string">&quot;uri&quot;</span>=<span class="ruby-operator">&gt;</span><span class="ruby-string">&quot;https://api.datamarket.azure.com/Data.ashx/Bing/Search/Image?Query='puffin'&amp;$skip=0&amp;$top=1&quot;</span>, <span class="ruby-string">&quot;type&quot;</span>=<span class="ruby-operator">&gt;</span><span class="ruby-string">&quot;Image
 </span></pre>
 
 <p>Arguments:</p>
