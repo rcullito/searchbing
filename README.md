@@ -23,11 +23,11 @@ Usage
 
 Example: Interactive Ruby Shell
 ===============
-## Require the gem in your shell session
+## require the gem in your shell session
    	require 'searchbing'
-## Create a new search object.
+## create a new search object
 	animals = Bing.new('your_account_key_goes_here', 10, 'Image')
-## Retrieve the results for a given term.
+## retrieve the results for a given term
 	bing_results = animals.search("lion")
 ## parse the results 
 	puts bing_results[0]["Thumbnail"]["MediaUrl"] # puts url of thumbnail  
