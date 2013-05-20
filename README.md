@@ -40,7 +40,7 @@ parse the results
 	  
 Projects
 ---------------
-[justamocha.](http://frozen-atoll-1103.herokuapp.com/) : used to look up images for book covers and album artwork.
+[justamocha](http://frozen-atoll-1103.herokuapp.com/)  used to look up images for book covers and album artwork.
   
 
 
