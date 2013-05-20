@@ -40,7 +40,7 @@ parse the results
 	  
 Projects
 ---------------
-See the searchbing gem in action on [just a mocha.](http://frozen-atoll-1103.herokuapp.com/)
+[justamocha.](http://frozen-atoll-1103.herokuapp.com/) : used to look up images for book covers and album artwork.
   
 
 
