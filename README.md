@@ -26,12 +26,17 @@ Example: Interactive Ruby Shell
 require the gem in your shell session
 
    	require 'searchbing'
-create a new search object
+create a new search object, below 10 results are requested, you can retrieve up to 50 at a time
 
 	bing_image = Bing.new('your_account_key_goes_here', 10, 'Image')
 retrieve the results for a given term
 
 	bing_results = bing_image.search("puffin")
+
+or optionally specify an offset for your search, to start retrieving results from the starting point provided
+
+    bing_results = bing_image.search("puffin", 25)
+
 parse the results
  
 	puts bing_results[0]["Thumbnail"]["MediaUrl"] # puts url of thumbnail  

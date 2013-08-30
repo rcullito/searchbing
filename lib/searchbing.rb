@@ -25,17 +25,18 @@ class Bing
 	attr_accessor :account_key, :num_results, :type
 
 	# Search for a term, the result is an array of hashes with the result data
-	#   >> bing_image.search("puffin") 
-	#   => [{"__metadata"=>{"uri"=>"https://api.datamarket.azure.com/Data.ashx/Bing/Search/Image?Query='puffin'&$skip=0&$top=1", "type"=>"Image
+	#   >> bing_image.search("puffin", 25)
+	#   => [{"__metadata"=>{"uri"=>"https://api.datamarket.azure.com/Data.ashx/Bing/Search/Image?Query='puffin'&$skip=25&$top=1", "type"=>"Image
 	# Arguments:
 	#   search_term: (String)
+	#   offset: (Integer)
 
-	def search(search_term)
+	def search(search_term, offset = 0)
 		 
 		user = ''
 		web_search_url = "https://api.datamarket.azure.com/Bing/Search/#{type}?$format=json&Query="
 		query_portion = URI.encode_www_form_component('\'' + search_term + '\'')
-		params = "&$top=#{@num_results}"
+		params = "&$top=#{@num_results}&$skip=#{offset}"
 		full_address = web_search_url + query_portion + params
 
 		uri = URI(full_address)
