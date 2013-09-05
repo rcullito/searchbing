@@ -13,10 +13,10 @@ class Bing
 	#   num_results: (Integer)
 	#   type: 	   (String)
 
-	def initialize(account_key, num_results, type)
+	def initialize(account_key, type)
 
 		@account_key = account_key
-		@num_results = num_results
+		#@num_results = num_results
 		@type = type
 
 
@@ -31,13 +31,13 @@ class Bing
 	#   search_term: (String)
 	#   offset: (Integer)
 
-	def search(search_term, offset = 0)
+	def search(search_term)
 		 
 		user = ''
-		web_search_url = "https://api.datamarket.azure.com/Bing/Search/#{type}?$format=json&Query="
+		web_search_url = "https://api.datamarket.azure.com/Bing/Search/v1/Composite?Sources=%27Web%27&$format=json&Query="
 		query_portion = URI.encode_www_form_component('\'' + search_term + '\'')
-		params = "&$top=#{@num_results}&$skip=#{offset}"
-		full_address = web_search_url + query_portion + params
+		
+		full_address = web_search_url + query_portion
 
 		uri = URI(full_address)
 		req = Net::HTTP::Get.new(uri.request_uri)
@@ -48,6 +48,22 @@ class Bing
 		}
 
 		body = JSON.parse(res.body)
-		result_set = body["d"]["results"]	
+		#result_set = body["d"]["results"]	
 	end	
 end
+
+
+
+#bing_image = Bing.new('MM6OD0qjozdOWWvspc0j4DRkn4JEBM0A/cEQFHDKTYo', 10, 'Image')
+#bing_results = bing_image.search("puffin")
+# puts bing_results
+
+
+# http://api.bing.net/json.aspx?Appid=<AppID>&query=sushi&sources=web
+
+bing_web = Bing.new('MM6OD0qjozdOWWvspc0j4DRkn4JEBM0A/cEQFHDKTYo', 'Web')
+bing_web_results = bing_web.search("nantucket")
+puts bing_web_results
+
+
+
