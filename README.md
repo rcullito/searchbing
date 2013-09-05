@@ -39,4 +39,7 @@ or optionally specify an offset for your search, to start retrieving results fro
 
 parse the results
  
-	puts bing_results[0]["Thumbnail"]["MediaUrl"] # puts url of thumbnail  
+	puts bing_results[0]["Thumbnail"]["MediaUrl"] # puts url of thumbnail 
+display the total number of rsults
+
+    puts bing_results[0]["ImageTotal"]
