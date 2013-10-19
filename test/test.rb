@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 require '../lib/searchbing.rb'
 require 'test/unit'
 
