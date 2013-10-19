@@ -1,3 +1,7 @@
+searchbing [![Build Status](https://travis-ci.org/rcullito/searchbing.png?branch=master)](https://travis-ci.org/rcullito/searchbing)
+=========
+
+
 ![Puffin](http://photos-g.ak.fbcdn.net/hphotos-ak-snc1/hs166.snc1/6216_704615592619_7804626_41719230_39698_n.jpg)
 
 
