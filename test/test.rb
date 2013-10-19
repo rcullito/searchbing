@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require '../lib/searchbing.rb'
+require_relative '../lib/searchbing.rb'
 require 'test/unit'
 
 class TestSearchBing < Test::Unit::TestCase
