@@ -41,9 +41,10 @@ or optionally specify an offset for your search, to start retrieving results fro
 
     bing_results = bing_image.search("puffin", 25)
 
-parse the results
+parse the results(recent changes require parsing with symbols, also please note the data structure of the response coming from bing has also changed)
  
-	puts bing_results[0]["Thumbnail"]["MediaUrl"] # puts url of thumbnail 
+    puts bing_results[0][:Image][0][:MediaUrl]
+
 display the total number of rsults
 
     puts bing_results[0]["ImageTotal"]
