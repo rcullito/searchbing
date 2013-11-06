@@ -1,4 +1,4 @@
-searchbing [![Build Status](https://travis-ci.org/rcullito/searchbing.png?branch=master)](https://travis-ci.org/rcullito/searchbing)
+searchbing [![Build Status](https://travis-ci.org/rcullito/searchbing.png?branch=master)](https://travis-ci.org/rcullito/searchbing) [![Gem Version](https://badge.fury.io/rb/searchbing.png)](http://badge.fury.io/rb/searchbing)
 =========
 
 
