@@ -45,6 +45,6 @@ parse the results(recent changes require parsing with symbols, also please note 
  
     puts bing_results[0][:Image][0][:MediaUrl]
 
-display the total number of rsults
+display the total number of results
 
     puts bing_results[0]["ImageTotal"]
