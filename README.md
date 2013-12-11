@@ -21,7 +21,7 @@ An account key is needed to use the Bing Search API. You can create a new accoun
 
 ## Usage
 
-- valid search types include: Image, Web, or Video. The first letter must be capitalized  
+- valid search types include: Image, Web, News or Video. The first letter must be capitalized  
 
 - this gem relies on the open-uri, net/http, and json gems.
 
