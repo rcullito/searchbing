@@ -2,7 +2,7 @@ searchbing [![Build Status](https://travis-ci.org/rcullito/searchbing.png?branch
 =========
 
 
-![Puffin](http://photos-g.ak.fbcdn.net/hphotos-ak-snc1/hs166.snc1/6216_704615592619_7804626_41719230_39698_n.jpg)
+![Puffin](http://static.guim.co.uk/sys-images/Environment/Pix/pictures/2008/07/29/puffin1.jpg)
 
 
 A gem for the Bing Search API 2.0.
