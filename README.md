@@ -17,11 +17,12 @@ find the [gem](https://rubygems.org/gems/searchbing) on rubygems.org
 
 Configuration
 -------------
-An account key is needed to use the Bing Search API. You can create a new account for the Bing Search API and obtain account key [here](http://www.bing.com/developers/)
+A subscription and account key are needed to use the Bing Search API. You can create a new account for the Bing Search API and obtain account key [here](https://datamarket.azure.com/dataset/bing/search) 
+The WebOnly search requires a separate subscription found [here](https://datamarket.azure.com/dataset/bing/searchweb)
 
 ## Usage
 
-- valid search types include: Image, Web, News or Video. The first letter must be capitalized  
+- valid search types include: Image, Web, WebOnly, News or Video. The first letter must be capitalized  
 
 - this gem relies on the open-uri, net/http, and json gems.
 
@@ -47,4 +48,4 @@ parse the results(recent changes require parsing with symbols, also please note 
 
 display the total number of results
 
-    puts bing_results[0]["ImageTotal"]
+    puts bing_results[0][:ImageTotal]
