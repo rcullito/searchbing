@@ -36,16 +36,21 @@ class Bing
 	def search(search_term, offset = 0)
 
 		user = ''
-		web_search_url = "https://api.datamarket.azure.com/Bing/Search/v1/Composite?Sources="
 		sources_portion = URI.encode_www_form_component('\'' + @type + '\'')
-		query_string = '&$format=json&Query='
+		query_string = '$format=json&Query='
 		query_portion = URI.encode_www_form_component('\'' + search_term + '\'')
 		params = "&$top=#{@num_results}&$skip=#{offset}"
 		@params.each do |k,v|
 			params << "&#{k.to_s}=\'#{v.to_s}\'"
 		end
+		if type=='WebOnly'
+		  web_search_url = "https://api.datamarket.azure.com/Bing/SearchWeb/v1/Web?"
+		  full_address = web_search_url + query_string + query_portion + params
+		else
+		  web_search_url = "https://api.datamarket.azure.com/Bing/Search/v1/Composite?Sources="
+		  full_address = web_search_url + sources_portion + '&' + query_string + query_portion + params
+		end
 
-		full_address = web_search_url + sources_portion + query_string + query_portion + params
 
 		uri = URI(full_address)
 		req = Net::HTTP::Get.new(uri.request_uri)
